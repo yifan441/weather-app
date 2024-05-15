@@ -1,38 +1,266 @@
-.App {
-  text-align: center;
+/* || Document */
+
+:root {
+  --primary-color: #4c7f7f;
+  --primary-font: 'Inter', sans-serif;
+  --margin-1: 8px;
+  --margin-2: 16px;
+  --margin-3: 24px;
+  --margin-4: 32px;
+  --heading-font: 28px;
+  --body-font: 18px;
+  --small-font: 16px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@media screen and (max-width: 600px) {
+  :root {
+    --heading-font: 24px;
+    --body-font: 16px;
+    --small-font: 14px;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+body {
+  background-color: #d9e8ee;
+  font-family: var(--primary-font);
+}
+
+button {
+  font-family: var(--primary-font);
+  background: none;
+  /* border: none; */
+}
+
+input,
+select {
+  font-family: var(--primary-font);
+  font-size: 18px;
+  padding: 5px;
+  border: none;
+  border-bottom: 1px solid #000;
+  background-color: inherit;
+}
+
+hr {
+  border: none; /* Remove the default border */
+  border-bottom: 2px solid #000; /* Set the bottom border to be thicker */
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+/* || App.js */
+
+.App {
+  margin: 1vh 1vw;
+  background-color: #f8f8ff;
+  height: auto;
+  min-height: 98vh;
+  width: 98vw;
+}
+
+/* || Header.js */
+.Header {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px;
+}
+
+.Header .logo {
+  margin-bottom: var(--margin-4);
+  color: var(--primary-color);
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+}
+
+.Header button {
+  border: none;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+/* || Body.js */
+
+.display-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-btn {
+  height: fit-content;
+  background-color: #c1e8e8;
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  width: 50px;
+  height: 50px;
+}
+
+.nav-btn:hover {
+  background-color: #9cc0c0;
+}
+
+.card-div {
+  display: flex;
+  flex-direction: row;
+}
+
+@media screen and (max-width: 1000px) {
+  .card-div {
+    flex-direction: column;
+  }
+}
+
+/* || Input.js */
+
+.Input {
+  width: 99%;
+  max-width: 1000px;
+  margin: 0 auto var(--margin-3) auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.labels {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-bottom: var(--margin-2);
+}
+
+.time-inputs {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.Input label {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.Input input {
+  width: 16em;
+  font-weight: bold;
+}
+
+.Input select[name='dayInput'] {
+  width: 11em;
+}
+
+.Input img {
+  margin-right: 5px;
+}
+
+@media screen and (max-width: 710px) {
+  .Input {
+    width: 95%;
+  }
+
+  .labels {
+    flex-direction: column;
+  }
+
+  .time-inputs {
+    justify-content: normal;
+    margin-top: 1em;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .time-inputs {
+    flex-direction: column;
+    justify-content: normal;
+    margin-top: 1em;
+  }
+}
+
+/* || Card.js */
+
+.Card {
+  background: inherit;
+  box-shadow: 5px 12px 10px rgba(0, 0, 0, 0.1);
+  border: 1px solid gray;
+  border-radius: 10%;
+  padding: 16px;
+  margin: 16px;
+  height: fit-content;
+  min-height: 550px;
+  width: 400px;
+
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+@media screen and (max-width: 1000px) {
+  .Card {
+    min-height: 200px;
+
+    width: 90%;
+    padding: 8px;
+    border-radius: 40px;
+
+    flex-direction: row;
+  }
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* || Report.js */
+
+.Report {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.heading-text {
+  font-size: var(--heading-font);
+  font-weight: 700;
+  text-align: center;
+}
+
+.active {
+  color: var(--primary-color);
+}
+
+.body-text {
+  font-size: var(--body-font);
+  font-weight: 600;
+}
+
+.small-text {
+  font-size: var(--small-font);
+  font-weight: 500;
+}
+
+.conditions {
+  display: flex;
+  align-items: center;
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+}
+
+.description > :not(:last-child) {
+  margin-bottom: 5px;
+}
+
+.no-hourly-data {
+  margin-top: 50px;
+  font-size: 18px;
+}
+
+/* || Chart.js */
+
+.line-chart {
+  height: 350px;
+  width: 350px;
 }
